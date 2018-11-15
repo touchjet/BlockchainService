@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.Abstractions", "BlockchainService.Abstractions\BlockchainService.Abstractions.csproj", "{8B19DCCC-1BE2-4BDC-B444-1EE7A8FBB923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCypher", "BlockchainService.BlockCypher\BlockchainService.BlockCypher.csproj", "{2BCB79E1-5AEC-44AE-951A-0AD7B3E9591D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCypher.Tests", "BlockchainService.BlockCypher.Tests\BlockchainService.BlockCypher.Tests.csproj", "{0C85D08D-CC73-43C4-84F2-8A97809F77D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B19DCCC-1BE2-4BDC-B444-1EE7A8FBB923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B19DCCC-1BE2-4BDC-B444-1EE7A8FBB923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B19DCCC-1BE2-4BDC-B444-1EE7A8FBB923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B19DCCC-1BE2-4BDC-B444-1EE7A8FBB923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BCB79E1-5AEC-44AE-951A-0AD7B3E9591D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BCB79E1-5AEC-44AE-951A-0AD7B3E9591D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BCB79E1-5AEC-44AE-951A-0AD7B3E9591D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BCB79E1-5AEC-44AE-951A-0AD7B3E9591D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C85D08D-CC73-43C4-84F2-8A97809F77D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C85D08D-CC73-43C4-84F2-8A97809F77D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C85D08D-CC73-43C4-84F2-8A97809F77D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C85D08D-CC73-43C4-84F2-8A97809F77D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
