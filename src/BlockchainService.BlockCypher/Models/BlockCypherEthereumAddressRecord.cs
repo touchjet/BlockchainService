@@ -39,5 +39,8 @@ namespace BlockchainService.BlockCypher.Models
 
         [JsonProperty("unconfirmed_n_tx")]
         public override Int64 NumberOfUnconfirmedTx { get => base.NumberOfUnconfirmedTx; set => base.NumberOfUnconfirmedTx = value; }
+
+        [JsonProperty("hasMore")]
+        public bool HasMore { get; set; }
     }
 }

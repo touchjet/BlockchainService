@@ -16,8 +16,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Threading.Tasks;
 using BlockchainService.Abstractions.Models;
 
@@ -27,7 +27,7 @@ namespace BlockchainService.Abstractions
     {
         Task<BitcoinBlockchain> GetBlockchainInfoAsync();
         Task<BitcoinAddressRecord> GetBalanceAsync(string address);
-        Task<IEnumerable<TXRef>> GetTransactionsAsync(string address);
+        Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, BigInteger firstBlock, BigInteger lastBlock);
         Task<BitcoinTXSkeleton> CreateTransactionAsync(BitcoinTX transaction);
         Task<BitcoinTXSkeleton> BroadcastTransactionAsync(BitcoinTXSkeleton transaction);
     }

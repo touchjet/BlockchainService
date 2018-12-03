@@ -18,6 +18,7 @@
 */
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BlockchainService.Abstractions;
 using BlockchainService.Abstractions.Models;
 using Microsoft.Extensions.Configuration;
@@ -47,7 +48,7 @@ namespace BlockchainService.BlockCypher.Tests
         }
 
         [Fact]
-        public async void TestEthereum()
+        public async Task TestEthereum()
         {
             var service = factory.GetService(CoinTypes.Ethereum, false);
 
@@ -60,7 +61,7 @@ namespace BlockchainService.BlockCypher.Tests
             Assert.True(addressRecord.Balance > 0);
             Assert.Equal(addressRecord.Address.ToLower(), ETHEREUM_MAINNET_ADDRESS.ToLower());
 
-            var trans = await service.GetTransactionsAsync(ETHEREUM_MAINNET_ADDRESS);
+            var trans = await service.GetTransactionsAsync(ETHEREUM_MAINNET_ADDRESS,0,blockchain.Height);
             var count = trans.Count();
             Log.Debug($"Number of Transactions: {count}");
             Assert.True(count > 0);

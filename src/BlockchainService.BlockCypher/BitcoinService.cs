@@ -17,6 +17,8 @@
  * limitations under the License.
 */
 using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using BlockchainService.Abstractions;
 using BlockchainService.Abstractions.Models;
@@ -61,10 +63,20 @@ namespace BlockchainService.BlockCypher
             return await Get<BlockCypherBitcoinBlockchain>($"/v1/{_coinType}/{_network}");
         }
 
-        public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address)
+        public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, BigInteger firstBlock, BigInteger lastBlock)
         {
-            var addressRecord = await Get<BlockCypherBitcoinAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{address}?token={_token}");
-            return addressRecord.TxRefs;
+            var result = new List<TXRef>();
+            var addressRecord = await Get<BlockCypherBitcoinAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{address}?token={_token}&after={firstBlock}&before={lastBlock}");
+            if (addressRecord.TxRefs != null)
+            {
+                result.AddRange(addressRecord.TxRefs);
+            }
+            if (addressRecord.HasMore)
+            {
+                BigInteger firstBlockIndex = result.Select(tx => tx.BlockHeight).Min();
+                result.AddRange(await GetTransactionsAsync(address, firstBlock, firstBlockIndex));
+            }
+            return result;
         }
     }
 }

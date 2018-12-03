@@ -25,11 +25,14 @@ using Xunit;
 using Xunit.Abstractions;
 using BlockchainService.Abstractions;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace BlockchainService.BlockCypher.Tests
 {
     public class BitcoinServiceTest
     {
+        const string BITCOIN_MAIN_ADDRESS_GENESIS = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+
         const string BITCOIN_TESTNET_ADDRESS_1 = "miDeyf1ktMmpEDjyLJvvUuTcEB6neRoFVG";
         const string BITCOIN_TESTNET_ADDRESS_2 = "mucvmebRcahcERecA1WsxS4NdeyAja89yF";
 
@@ -51,8 +54,30 @@ namespace BlockchainService.BlockCypher.Tests
             factory = new BitcoinServiceFactory(config["token"]);
         }
 
+
         [Fact]
-        public async void TestBitcoin()
+        public async Task TestBitcoinMain()
+        {
+            var service = factory.GetService(CoinTypes.Bitcoin, false);
+
+            var blockchain = await service.GetBlockchainInfoAsync();
+            Log.Debug($"Block Height: {blockchain.Height}");
+            Assert.True(blockchain.Height > 0);
+
+            var addressRecord = await service.GetBalanceAsync(BITCOIN_MAIN_ADDRESS_GENESIS);
+            Log.Debug($"Balance: {addressRecord.Balance}");
+            Assert.True(addressRecord.Balance >= 1690094937);
+            Assert.Equal(addressRecord.Address, BITCOIN_MAIN_ADDRESS_GENESIS);
+
+            var trans = await service.GetTransactionsAsync(BITCOIN_MAIN_ADDRESS_GENESIS, 0, blockchain.Height);
+            var count = trans.Count();
+            Log.Debug($"Number of Transactions: {count}");
+            Assert.True(count > 1460);
+            Assert.Contains(trans, t => (t.Value == 800) && (t.BlockHeight == 529532));
+        }
+
+        [Fact]
+        public async Task TestBitcoinTest()
         {
             var service = factory.GetService(CoinTypes.Bitcoin, true);
 
@@ -65,7 +90,7 @@ namespace BlockchainService.BlockCypher.Tests
             Assert.True(addressRecord.Balance > 0);
             Assert.Equal(addressRecord.Address, BITCOIN_TESTNET_ADDRESS_1);
 
-            var trans = await service.GetTransactionsAsync(BITCOIN_TESTNET_ADDRESS_1);
+            var trans = await service.GetTransactionsAsync(BITCOIN_TESTNET_ADDRESS_1, 0, blockchain.Height);
             var count = trans.Count();
             Log.Debug($"Number of Transactions: {count}");
             Assert.True(count > 0);
@@ -91,7 +116,7 @@ namespace BlockchainService.BlockCypher.Tests
         }
 
         [Fact]
-        public async void TestLitecoin()
+        public async Task TestLitecoin()
         {
             var service = factory.GetService(CoinTypes.Litecoin, false);
 
@@ -104,7 +129,7 @@ namespace BlockchainService.BlockCypher.Tests
             Assert.True(addressRecord.Balance >= 0);
             Assert.Equal(addressRecord.Address, LITECOIN_MAINNET_ADDRESS);
 
-            var trans = await service.GetTransactionsAsync(LITECOIN_MAINNET_ADDRESS);
+            var trans = await service.GetTransactionsAsync(LITECOIN_MAINNET_ADDRESS, 0, blockchain.Height);
             var count = trans.Count();
             Log.Debug($"Number of Transactions: {count}");
             Assert.True(count > 0);
@@ -112,7 +137,7 @@ namespace BlockchainService.BlockCypher.Tests
         }
 
         [Fact]
-        public async void TestDogecoin()
+        public async Task TestDogecoin()
         {
             var service = factory.GetService(CoinTypes.Dogecoin, false);
 
@@ -125,7 +150,7 @@ namespace BlockchainService.BlockCypher.Tests
             Assert.True(addressRecord.Balance >= 0);
             Assert.Equal(addressRecord.Address, DOGECOIN_MAINNET_ADDRESS);
 
-            var trans = await service.GetTransactionsAsync(DOGECOIN_MAINNET_ADDRESS);
+            var trans = await service.GetTransactionsAsync(DOGECOIN_MAINNET_ADDRESS, 0, blockchain.Height);
             var count = trans.Count();
             Log.Debug($"Number of Transactions: {count}");
             Assert.True(count > 0);
