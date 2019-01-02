@@ -61,11 +61,11 @@ namespace BlockchainService.BlockCypher.Tests
             Assert.True(addressRecord.Balance > 0);
             Assert.Equal(addressRecord.Address.ToLower(), ETHEREUM_MAINNET_ADDRESS.ToLower());
 
-            var trans = await service.GetTransactionsAsync(ETHEREUM_MAINNET_ADDRESS,0,blockchain.Height);
+            var trans = await service.GetTransactionsAsync(ETHEREUM_MAINNET_ADDRESS, 0, blockchain.Height);
             var count = trans.Count();
             Log.Debug($"Number of Transactions: {count}");
             Assert.True(count > 0);
-            Assert.Contains(trans, t => t.Value>0);
+            Assert.Contains(trans, t => t.Value > 0);
 
             var tx = new EthereumTX()
             {
