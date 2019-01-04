@@ -19,8 +19,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Threading.Tasks;
+using System.Web;
 using BlockchainService.Abstractions;
 using BlockchainService.Abstractions.Models;
 using BlockchainService.BlockCypher.Models;
@@ -66,7 +66,7 @@ namespace BlockchainService.BlockCypher
 
         public async Task<EthereumAddressRecord> GetBalanceAsync(string address)
         {
-            return await Get<BlockCypherEthereumAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{address}/balance?token={_token}");
+            return await Get<BlockCypherEthereumAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{HttpUtility.UrlEncode(address)}/balance?token={_token}");
         }
 
         public async Task<EthereumBlockchain> GetBlockchainInfoAsync()
@@ -77,7 +77,7 @@ namespace BlockchainService.BlockCypher
         public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, Int64 firstBlock, Int64 lastBlock)
         {
             var result = new List<TXRef>();
-            var addressRecord = await Get<BlockCypherEthereumAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{address}?token={_token}&after={firstBlock}&before={lastBlock}");
+            var addressRecord = await Get<BlockCypherEthereumAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{HttpUtility.UrlEncode(address)}?token={_token}&after={firstBlock}&before={lastBlock}");
             if (addressRecord.TxRefs != null)
             {
                 result.AddRange(addressRecord.TxRefs);
