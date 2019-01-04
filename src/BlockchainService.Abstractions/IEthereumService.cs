@@ -31,6 +31,6 @@ namespace BlockchainService.Abstractions
         Task<EthereumTXSkeleton> CreateTransactionAsync(EthereumTX transaction);
         Task<EthereumTXSkeleton> BroadcastTransactionAsync(EthereumTXSkeleton transaction);
         Task<IEnumerable<EthereumContract>> CreateContractAsync(EthereumContract transaction);
-        Task<IEnumerable<EthereumContract>> CallContractMethodAsync(EthereumContract transaction, string method);
+        Task<EthereumContract> CallContractMethodAsync(EthereumContract transaction, string method);
     }
 }
