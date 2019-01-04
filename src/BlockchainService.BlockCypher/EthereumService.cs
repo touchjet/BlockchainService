@@ -45,17 +45,17 @@ namespace BlockchainService.BlockCypher
 
         public async Task<EthereumTXSkeleton> BroadcastTransactionAsync(EthereumTXSkeleton transaction)
         {
-            return await Post<EthereumTXSkeleton, EthereumTXSkeleton>($"/v1/{_coinType}/{_network}/txs/send?token={_token}", transaction);
+            return await Post<EthereumTXSkeleton, EthereumTXSkeleton>($"/v1/{_coinType}/{_network}/txs/new?token={_token}", transaction);
         }
 
-        public Task<EthereumContract> CallContractMethodAsync(EthereumContract transaction, string method)
+        public async Task<EthereumContract> CallContractMethodAsync(string address, string method, EthereumContract contract)
         {
-            throw new NotImplementedException();
+            return await Post<EthereumContract, EthereumContract>($"/v1/{_coinType}/{_network}/contracts/{HttpUtility.UrlEncode(address)}/{HttpUtility.UrlEncode(method)}?token={_token}", contract);
         }
 
-        public Task<IEnumerable<EthereumContract>> CreateContractAsync(EthereumContract transaction)
+        public async Task<IEnumerable<EthereumContract>> CreateContractAsync(EthereumContract contract)
         {
-            throw new NotImplementedException();
+            return await Post<EthereumContract, IEnumerable<EthereumContract>>($"/v1/{_coinType}/{_network}/contracts?token={_token}", contract);
         }
 
         public async Task<EthereumTXSkeleton> CreateTransactionAsync(EthereumTX transaction)

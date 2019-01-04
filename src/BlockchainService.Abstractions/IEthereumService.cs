@@ -30,7 +30,7 @@ namespace BlockchainService.Abstractions
         Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, Int64 firstBlock, Int64 lastBlock);
         Task<EthereumTXSkeleton> CreateTransactionAsync(EthereumTX transaction);
         Task<EthereumTXSkeleton> BroadcastTransactionAsync(EthereumTXSkeleton transaction);
-        Task<IEnumerable<EthereumContract>> CreateContractAsync(EthereumContract transaction);
-        Task<EthereumContract> CallContractMethodAsync(EthereumContract transaction, string method);
+        Task<IEnumerable<EthereumContract>> CreateContractAsync(EthereumContract contract);
+        Task<EthereumContract> CallContractMethodAsync(string address, string method, EthereumContract contract);
     }
 }
