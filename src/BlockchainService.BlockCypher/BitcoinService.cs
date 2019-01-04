@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -63,7 +64,7 @@ namespace BlockchainService.BlockCypher
             return await Get<BlockCypherBitcoinBlockchain>($"/v1/{_coinType}/{_network}");
         }
 
-        public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, BigInteger firstBlock, BigInteger lastBlock)
+        public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, Int64 firstBlock, Int64 lastBlock)
         {
             var result = new List<TXRef>();
             var addressRecord = await Get<BlockCypherBitcoinAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{address}?token={_token}&after={firstBlock}&before={lastBlock}");
@@ -73,7 +74,7 @@ namespace BlockchainService.BlockCypher
             }
             if (addressRecord.HasMore)
             {
-                BigInteger firstBlockIndex = result.Select(tx => tx.BlockHeight).Min();
+                Int64 firstBlockIndex = result.Where(tx => tx.BlockHeight > 0).Select(tx => tx.BlockHeight).Min();
                 result.AddRange(await GetTransactionsAsync(address, firstBlock, firstBlockIndex));
             }
             return result;
