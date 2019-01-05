@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCyph
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCypher.Tests", "BlockchainService.BlockCypher.Tests\BlockchainService.BlockCypher.Tests.csproj", "{0C85D08D-CC73-43C4-84F2-8A97809F77D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCypherProxy", "BlockchainService.BlockCypherProxy\BlockchainService.BlockCypherProxy.csproj", "{EF46B6C1-6B46-480D-B371-9348BE0419C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCypherProxy.Client", "BlockchainService.BlockCypherProxy.Client\BlockchainService.BlockCypherProxy.Client.csproj", "{5B03D6F3-B4C0-4638-88D4-563D4A29E8E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.SharedTests", "BlockchainService.SharedTests\BlockchainService.SharedTests.csproj", "{6A9D59B6-4C57-4652-84F9-6870E3CF5DC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCypherProxy.Client.Tests", "BlockchainService.BlockCypherProxy.Client.Tests\BlockchainService.BlockCypherProxy.Client.Tests.csproj", "{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +33,21 @@ Global
 		{0C85D08D-CC73-43C4-84F2-8A97809F77D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C85D08D-CC73-43C4-84F2-8A97809F77D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C85D08D-CC73-43C4-84F2-8A97809F77D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF46B6C1-6B46-480D-B371-9348BE0419C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF46B6C1-6B46-480D-B371-9348BE0419C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF46B6C1-6B46-480D-B371-9348BE0419C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF46B6C1-6B46-480D-B371-9348BE0419C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B03D6F3-B4C0-4638-88D4-563D4A29E8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B03D6F3-B4C0-4638-88D4-563D4A29E8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B03D6F3-B4C0-4638-88D4-563D4A29E8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B03D6F3-B4C0-4638-88D4-563D4A29E8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A9D59B6-4C57-4652-84F9-6870E3CF5DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9D59B6-4C57-4652-84F9-6870E3CF5DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9D59B6-4C57-4652-84F9-6870E3CF5DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9D59B6-4C57-4652-84F9-6870E3CF5DC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -16,25 +16,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 using Serilog;
-using Xunit.Abstractions;
-using Microsoft.Extensions.Configuration;
-using BlockchainService.SharedTests;
+using Serilog.Events;
 
-namespace BlockchainService.BlockCypher.Tests
+namespace BlockchainService.BlockCypherProxy
 {
-    public class BitcoinServiceTest : BitcoinServiceTestBase
+    public class Program
     {
-        public BitcoinServiceTest(ITestOutputHelper output)
+        public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.TestOutput(output, Serilog.Events.LogEventLevel.Verbose)
-                .CreateLogger();
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("settings.json")
-                .Build();
-            factory = new BitcoinServiceFactory(config["token"]);
+                        .MinimumLevel.Debug()
+                        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                        .Enrich.FromLogContext()
+                        .WriteTo.Console()
+                        .CreateLogger();
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseSerilog();
     }
 }

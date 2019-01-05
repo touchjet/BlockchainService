@@ -21,9 +21,9 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using Xunit.Abstractions;
 
-namespace BlockchainService.BlockCypher.Tests
+namespace BlockchainService.BlockCypherProxy.Client.Tests
 {
-    public class EthereumServiceTest: EthereumServiceTestBase
+    public class EthereumServiceTest : EthereumServiceTestBase
     {
         public EthereumServiceTest(ITestOutputHelper output)
         {
@@ -34,7 +34,7 @@ namespace BlockchainService.BlockCypher.Tests
             var config = new ConfigurationBuilder()
                 .AddJsonFile("settings.json")
                 .Build();
-            factory = new EthereumServiceFactory(config["token"]);
+            factory = new EthereumServiceFactory(config["site_url"]);
         }
     }
 }

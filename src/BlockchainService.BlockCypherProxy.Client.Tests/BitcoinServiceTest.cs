@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2018 Touchjet Limited.
  * 
  * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -21,11 +21,11 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using Xunit.Abstractions;
 
-namespace BlockchainService.BlockCypher.Tests
+namespace BlockchainService.BlockCypherProxy.Client.Tests
 {
-    public class EthereumServiceTest: EthereumServiceTestBase
+    public class BitcoinServiceTest : BitcoinServiceTestBase
     {
-        public EthereumServiceTest(ITestOutputHelper output)
+        public BitcoinServiceTest(ITestOutputHelper output)
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -34,7 +34,7 @@ namespace BlockchainService.BlockCypher.Tests
             var config = new ConfigurationBuilder()
                 .AddJsonFile("settings.json")
                 .Build();
-            factory = new EthereumServiceFactory(config["token"]);
+            factory = new BitcoinServiceFactory(config["site_url"]);
         }
     }
 }

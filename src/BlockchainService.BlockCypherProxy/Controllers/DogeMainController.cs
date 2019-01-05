@@ -16,25 +16,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-using BlockchainService.SharedTests;
-using Microsoft.Extensions.Configuration;
-using Serilog;
-using Xunit.Abstractions;
+using BlockchainService.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 
-namespace BlockchainService.BlockCypher.Tests
+namespace BlockchainService.BlockCypherProxy.Controllers
 {
-    public class EthereumServiceTest: EthereumServiceTestBase
+    [Route("v1/doge/main")]
+    [ApiController]
+    public class DogeMainController : BitcoinServiceControllerBase
     {
-        public EthereumServiceTest(ITestOutputHelper output)
+        public DogeMainController(IBitcoinServiceFactory serviceFactory)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.TestOutput(output, Serilog.Events.LogEventLevel.Verbose)
-                .CreateLogger();
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("settings.json")
-                .Build();
-            factory = new EthereumServiceFactory(config["token"]);
+            _service = serviceFactory.GetService(CoinTypes.Dogecoin, false);
         }
     }
 }

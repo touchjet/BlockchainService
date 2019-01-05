@@ -16,25 +16,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-using BlockchainService.SharedTests;
-using Microsoft.Extensions.Configuration;
-using Serilog;
-using Xunit.Abstractions;
+using BlockchainService.Abstractions;
 
-namespace BlockchainService.BlockCypher.Tests
+namespace BlockchainService.BlockCypherProxy.Client
 {
-    public class EthereumServiceTest: EthereumServiceTestBase
+    public class EthereumServiceFactory : IEthereumServiceFactory
     {
-        public EthereumServiceTest(ITestOutputHelper output)
+        string _siteUrl;
+
+        public EthereumServiceFactory(string siteUrl)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.TestOutput(output, Serilog.Events.LogEventLevel.Verbose)
-                .CreateLogger();
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("settings.json")
-                .Build();
-            factory = new EthereumServiceFactory(config["token"]);
+            _siteUrl = siteUrl;
+        }
+
+        public IEthereumService GetService(CoinTypes coinType, bool testNet)
+        {
+            switch (coinType)
+            {
+                case CoinTypes.Ethereum:
+                    if (!testNet)
+                    {
+                        return new EthereumService(_siteUrl, "eth", "main");
+                    }
+                    break;
+            }
+            throw new ServiceNotAvailableException(coinType, testNet);
         }
     }
 }
