@@ -18,6 +18,10 @@
   <ItemGroup>
     <ProjectReference Include="..\BlockchainService.Abstractions\BlockchainService.Abstractions.csproj" />
     <ProjectReference Include="..\BlockchainService.BlockCypher\BlockchainService.BlockCypher.csproj" />
+    <ProjectReference Include="..\BlockchainService.SharedTests\BlockchainService.SharedTests.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="settings.json">
