@@ -48,9 +48,9 @@ namespace BlockchainService.BlockCypher
             return await Post<EthereumTXSkeleton, EthereumTXSkeleton>($"/v1/{_coinType}/{_network}/txs/new?token={_token}", transaction);
         }
 
-        public async Task<EthereumContract> CallContractMethodAsync(string address, string method, EthereumContract contract)
+        public async Task<EthereumContract> CallContractMethodAsync(EthereumContractCall contractCall)
         {
-            return await Post<EthereumContract, EthereumContract>($"/v1/{_coinType}/{_network}/contracts/{HttpUtility.UrlEncode(address)}/{HttpUtility.UrlEncode(method)}?token={_token}", contract);
+            return await Post<EthereumContract, EthereumContract>($"/v1/{_coinType}/{_network}/contracts/{HttpUtility.UrlEncode(contractCall.Address)}/{HttpUtility.UrlEncode(contractCall.Method)}?token={_token}", contractCall.Contract);
         }
 
         public async Task<IEnumerable<EthereumContract>> CreateContractAsync(EthereumContract contract)

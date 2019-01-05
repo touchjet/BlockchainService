@@ -17,20 +17,12 @@
  * limitations under the License.
 */
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using BlockchainService.Abstractions.Models;
-
-namespace BlockchainService.Abstractions
+namespace BlockchainService.Abstractions.Models
 {
-    public interface IEthereumService
+    public class EthereumContractCall
     {
-        Task<EthereumBlockchain> GetBlockchainInfoAsync();
-        Task<EthereumAddressRecord> GetBalanceAsync(string address);
-        Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, Int64 firstBlock, Int64 lastBlock);
-        Task<EthereumTXSkeleton> CreateTransactionAsync(EthereumTX transaction);
-        Task<EthereumTXSkeleton> BroadcastTransactionAsync(EthereumTXSkeleton transaction);
-        Task<IEnumerable<EthereumContract>> CreateContractAsync(EthereumContract contract);
-        Task<EthereumContract> CallContractMethodAsync(EthereumContractCall contractCall);
+        public string Address { get; set; }
+        public string Method { get; set; }
+        public EthereumContract Contract { get; set; }
     }
 }
