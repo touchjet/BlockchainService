@@ -60,13 +60,13 @@ namespace BlockchainService.BlockCypher.Models
         }
 
         [JsonProperty("unconfirmed_balance")]
-        public override BigInteger UnconfirmedBalance { get => base.UnconfirmedBalance; set => base.UnconfirmedBalance = value; }
+        public override ulong UnconfirmedBalance { get => base.UnconfirmedBalance; set => base.UnconfirmedBalance = value; }
 
         [JsonProperty("total_received")]
-        public override BigInteger TotalReceived { get => base.TotalReceived; set => base.TotalReceived = value; }
+        public override ulong TotalReceived { get => base.TotalReceived; set => base.TotalReceived = value; }
 
         [JsonProperty("total_sent")]
-        public override BigInteger TotalSent { get => base.TotalSent; set => base.TotalSent = value; }
+        public override ulong TotalSent { get => base.TotalSent; set => base.TotalSent = value; }
 
         [JsonProperty("n_tx")]
         public override Int64 NumberOfTx { get => base.NumberOfTx; set => base.NumberOfTx = value; }

@@ -61,16 +61,16 @@ namespace BlockchainService.BlockCypher.Models
         public override Int64 BlockHeight { get => base.BlockHeight; set => base.BlockHeight = value; }
 
         [JsonProperty("gas_used")]
-        public override BigInteger GasUsed { get => base.GasUsed; set => base.GasUsed = value; }
+        public override ulong GasUsed { get => base.GasUsed; set => base.GasUsed = value; }
 
         [JsonProperty("gas_price")]
-        public override BigInteger GasPrice { get => base.GasPrice; set => base.GasPrice = value; }
+        public override ulong GasPrice { get => base.GasPrice; set => base.GasPrice = value; }
 
         [JsonProperty("relayed_by")]
         public override string RelayedBy { get => base.RelayedBy; set => base.RelayedBy = value; }
 
         [JsonProperty("gas_limit")]
-        public override BigInteger GasLimit { get => base.GasLimit; set => base.GasLimit = value; }
+        public override ulong GasLimit { get => base.GasLimit; set => base.GasLimit = value; }
 
         [JsonProperty("contract_creation")]
         public override bool ContractCreation { get => base.ContractCreation; set => base.ContractCreation = value; }

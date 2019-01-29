@@ -40,7 +40,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The value of the output being spent within the previous transaction. Not present for coinbase transactions. 
         /// </summary>
-        public virtual BigInteger OutputValue { get; set; }
+        public virtual ulong OutputValue { get; set; }
 
         /// <summary>
         ///  The type of script that encumbers the output corresponding to this input.   

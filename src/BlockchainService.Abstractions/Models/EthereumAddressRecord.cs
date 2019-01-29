@@ -35,22 +35,22 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// Balance of confirmed satoshis on this address. This is the difference between outputs and inputs on this address, but only for transactions that have been included into a block (i.e., for transactions whose confirmations > 0).
         /// </summary>
-        public virtual BigInteger Balance { get; set; }
+        public virtual ulong Balance { get; set; }
 
         /// <summary>
         /// Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven’t made it into a block) are included.
         /// </summary>
-        public virtual BigInteger UnconfirmedBalance { get; set; }
+        public virtual ulong UnconfirmedBalance { get; set; }
 
         /// <summary>
         /// Total amount of confirmed satoshis received by this address.
         /// </summary>
-        public virtual BigInteger TotalReceived { get; set; }
+        public virtual ulong TotalReceived { get; set; }
 
         /// <summary>
         /// Total amount of confirmed satoshis sent by this address.
         /// </summary>
-        public virtual BigInteger TotalSent { get; set; }
+        public virtual ulong TotalSent { get; set; }
 
         /// <summary>
         /// Number of confirmed transactions on this address. Only transactions that have made it into a block (confirmations > 0) are counted.

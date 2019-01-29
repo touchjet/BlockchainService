@@ -55,7 +55,7 @@ namespace BlockchainService.BlockCypher.Models
         public override Int64 OutputIndex { get => base.OutputIndex; set => base.OutputIndex = value; }
 
         [JsonProperty("output_value")]
-        public override BigInteger OutputValue { get => base.OutputValue; set => base.OutputValue = value; }
+        public override ulong OutputValue { get => base.OutputValue; set => base.OutputValue = value; }
 
         [JsonProperty("script_type")]
         public override string ScriptType { get => base.ScriptType; set => base.ScriptType = value; }

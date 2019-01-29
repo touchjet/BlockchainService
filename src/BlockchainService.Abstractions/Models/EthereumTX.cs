@@ -45,12 +45,12 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The total number of satoshis exchanged in this transaction. 
         /// </summary>
-        public virtual BigInteger Total { get; set; }
+        public virtual ulong Total { get; set; }
 
         /// <summary>
         ///  The total number of fees—in satoshis—collected by miners in this transaction. 
         /// </summary>
-        public virtual BigInteger Fees { get; set; }
+        public virtual ulong Fees { get; set; }
 
         /// <summary>
         ///  The size of the transaction in bytes. 
@@ -60,12 +60,12 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The amount of gas used by this transaction. 
         /// </summary>
-        public virtual BigInteger GasUsed { get; set; }
+        public virtual ulong GasUsed { get; set; }
 
         /// <summary>
         ///  The price of gas—in wei—in this transaction. 
         /// </summary>
-        public virtual BigInteger GasPrice { get; set; }
+        public virtual ulong GasPrice { get; set; }
 
         /// <summary>
         ///  Address of the peer that sent BlockCypher’s servers this transaction.
@@ -110,7 +110,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  If creating a transaction, can optionally set a higher default gas limit (useful if your recepient is a contract). If not set, default is 21000 gas for external accounts and 80000 for contract accounts.
         /// </summary>
-        public virtual BigInteger GasLimit { get; set; }
+        public virtual ulong GasLimit { get; set; }
 
         /// <summary>
         ///  If true, this transaction was used to create a contract and contract account. Note that the contract address (in the outputs field) will be blank until the transaction is confirmed.

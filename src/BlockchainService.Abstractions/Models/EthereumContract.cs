@@ -50,12 +50,12 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// Maximum amount of gas to use in contract creation or method execution.
         /// </summary>
-        public BigInteger GasLimit { get; set; }
+        public ulong GasLimit { get; set; }
 
         /// <summary>
         /// Amount (in wei) to transfer; can be used when creating a contract or calling a method.
         /// </summary>
-        public BigInteger Value { get; set; }
+        public ulong Value { get; set; }
 
         /// <summary>
         /// Name of contract as published.

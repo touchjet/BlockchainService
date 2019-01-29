@@ -37,10 +37,10 @@ namespace BlockchainService.BlockCypher.Models
         public int OutputN { get; set; }
 
         [JsonProperty("value")]
-        public virtual BigInteger Value { get; set; }
+        public virtual ulong Value { get; set; }
 
         [JsonProperty("ref_balance")]
-        public virtual BigInteger Balance { get; set; }
+        public virtual ulong Balance { get; set; }
 
         [JsonProperty("confirmed")]
         public virtual DateTime Confirmed { get; set; }

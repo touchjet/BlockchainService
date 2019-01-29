@@ -45,12 +45,12 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The total number of satoshis exchanged in this transaction. 
         /// </summary>
-        public virtual BigInteger Total { get; set; }
+        public virtual ulong Total { get; set; }
 
         /// <summary>
         ///  The total number of fees—in satoshis—collected by miners in this transaction. 
         /// </summary>
-        public virtual BigInteger Fees { get; set; }
+        public virtual ulong Fees { get; set; }
 
         /// <summary>
         ///  The size of the transaction in bytes. 

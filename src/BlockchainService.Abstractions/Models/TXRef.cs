@@ -36,12 +36,12 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The value transfered by this input/output in wei exchanged in the enclosing transaction. 
         /// </summary>
-        public virtual BigInteger Value { get; set; }
+        public virtual ulong Value { get; set; }
 
         /// <summary>
         ///  The past balance of the parent address the moment this transaction was confirmed. Not present for unconfirmed transactions. 
         /// </summary>
-        public virtual BigInteger Balance { get; set; }
+        public virtual ulong Balance { get; set; }
 
         /// <summary>
         ///  Time at which transaction was included in a block; only present for confirmed transactions. 
