@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  blockchainservice.blockcypherproxy:
+    image: ${DOCKER_REGISTRY-}blockchainservice
+    build:
+      context: .
+      dockerfile: BlockchainService.BlockCypherProxy/Dockerfile

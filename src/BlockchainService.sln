@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.SharedTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainService.BlockCypherProxy.Client.Tests", "BlockchainService.BlockCypherProxy.Client.Tests\BlockchainService.BlockCypherProxy.Client.Tests.csproj", "{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F5EA1EFE-EF46-4663-AAD0-513D057FEE06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,5 +51,9 @@ Global
 		{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0429D1C-E30A-47C9-BEE1-9EB35EF913B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5EA1EFE-EF46-4663-AAD0-513D057FEE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EA1EFE-EF46-4663-AAD0-513D057FEE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EA1EFE-EF46-4663-AAD0-513D057FEE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EA1EFE-EF46-4663-AAD0-513D057FEE06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
