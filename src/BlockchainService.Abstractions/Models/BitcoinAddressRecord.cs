@@ -18,7 +18,7 @@
 */
 using System;
 using System.Collections.Generic;
-using System.Numerics;
+using Newtonsoft.Json;
 
 namespace BlockchainService.Abstractions.Models
 {
@@ -30,41 +30,49 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// Address
         /// </summary>
+        [JsonProperty("address")]
         public virtual string Address { get; set; }
 
         /// <summary>
         /// Balance of confirmed satoshis on this address. This is the difference between outputs and inputs on this address, but only for transactions that have been included into a block (i.e., for transactions whose confirmations > 0).
         /// </summary>
+        [JsonProperty("balance")]
         public virtual ulong Balance { get; set; }
 
         /// <summary>
         /// Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven’t made it into a block) are included.
         /// </summary>
+        [JsonProperty("unconfirmed_balance")]
         public virtual ulong UnconfirmedBalance { get; set; }
 
         /// <summary>
         /// Total amount of confirmed satoshis received by this address.
         /// </summary>
+        [JsonProperty("total_received")]
         public virtual ulong TotalReceived { get; set; }
 
         /// <summary>
         /// Total amount of confirmed satoshis sent by this address.
         /// </summary>
+        [JsonProperty("total_sent")]
         public virtual ulong TotalSent { get; set; }
 
         /// <summary>
         /// Number of confirmed transactions on this address. Only transactions that have made it into a block (confirmations > 0) are counted.
         /// </summary>
+        [JsonProperty("n_tx")]
         public virtual Int64 NumberOfTx { get; set; }
 
         /// <summary>
         /// Number of unconfirmed transactions for this address. Only unconfirmed transactions (confirmations == 0) are counted.
         /// </summary>
+        [JsonProperty("unconfirmed_n_tx")]
         public virtual Int64 NumberOfUnconfirmedTx { get; set; }
 
         /// <summary>
         /// Array of transaction summaries for this address. 
         /// </summary>
+        [JsonProperty("txrefs")]
         public virtual List<TXRef> TxRefs { get; set; }
     }
 }
