@@ -17,7 +17,6 @@
  * limitations under the License.
 */
 using System;
-using System.Numerics;
 
 namespace BlockchainService.Abstractions.Models
 {

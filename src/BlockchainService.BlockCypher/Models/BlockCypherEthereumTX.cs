@@ -19,7 +19,6 @@
 using System;
 using Newtonsoft.Json;
 using BlockchainService.Abstractions.Models;
-using System.Numerics;
 
 namespace BlockchainService.BlockCypher.Models
 {

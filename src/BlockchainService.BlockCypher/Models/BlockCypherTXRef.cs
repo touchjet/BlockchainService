@@ -17,7 +17,6 @@
  * limitations under the License.
 */
 using System;
-using System.Numerics;
 using Newtonsoft.Json;
 
 namespace BlockchainService.BlockCypher.Models
