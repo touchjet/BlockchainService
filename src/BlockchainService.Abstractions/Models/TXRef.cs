@@ -35,7 +35,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The value transfered by this input/output in wei exchanged in the enclosing transaction. 
         /// </summary>
-        public virtual ulong Value { get; set; }
+        public virtual long Value { get; set; }
 
         /// <summary>
         ///  The past balance of the parent address the moment this transaction was confirmed. Not present for unconfirmed transactions. 

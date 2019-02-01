@@ -38,7 +38,7 @@ namespace BlockchainService.BlockCypher.Models
                 {
                     BlockHeight = v.BlockHeight,
                     Hash = v.Hash,
-                    Value = v.InputN == -1 ? v.Value : -v.Value,
+                    Value = v.InputN == -1 ? v.Value : 0 - v.Value,
                     Balance = v.Balance,
                     Confirmed = v.Confirmed
                 }).ToList();
@@ -51,7 +51,7 @@ namespace BlockchainService.BlockCypher.Models
                     Hash = v.Hash,
                     Balance = v.Balance,
                     Confirmed = v.Confirmed,
-                    Value = v.Value > 0 ? v.Value : -v.Value,
+                    Value = v.Value > 0 ? v.Value : 0 - v.Value,
                     InputN = v.Value > 0 ? -1 : 0,
                     OutputN = v.Value < 0 ? -1 : 0
                 }).ToList();

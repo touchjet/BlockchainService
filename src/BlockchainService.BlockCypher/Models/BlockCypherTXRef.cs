@@ -36,7 +36,7 @@ namespace BlockchainService.BlockCypher.Models
         public int OutputN { get; set; }
 
         [JsonProperty("value")]
-        public virtual ulong Value { get; set; }
+        public virtual long Value { get; set; }
 
         [JsonProperty("ref_balance")]
         public virtual ulong Balance { get; set; }
