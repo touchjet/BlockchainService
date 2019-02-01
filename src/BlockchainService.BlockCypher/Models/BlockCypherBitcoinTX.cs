@@ -47,8 +47,8 @@ namespace BlockchainService.BlockCypher.Models
             base.Ver = tx.Ver;
             base.LockTime = tx.LockTime;
             base.Confirmations = tx.Confirmations;
-            BlockCypherInputs = tx.Inputs.Select(v => new BlockCypherBitcoinTXInput(v)).ToList();
-            BlockCypherOutputs = tx.Outputs.Select(v => new BlockCypherBitcoinTXOutput(v)).ToList();
+            BlockCypherInputs = tx.Inputs;
+            BlockCypherOutputs = tx.Outputs;
             base.OptInRbf = tx.OptInRbf;
             base.Confidence = tx.Confidence;
             base.Confirmed = tx.Confirmed;
@@ -70,16 +70,16 @@ namespace BlockchainService.BlockCypher.Models
         public override Int64 LockTime { get => base.LockTime; set => base.LockTime = value; }
 
         [JsonProperty("inputs")]
-        public List<BlockCypherBitcoinTXInput> BlockCypherInputs { get; set; }
+        public List<BitcoinTXInput> BlockCypherInputs { get; set; }
 
         [JsonIgnore]
-        public override List<BitcoinTXInput> Inputs { get => BlockCypherInputs.Select(v => (BitcoinTXInput)v).ToList(); set => BlockCypherInputs = value.Select(v => new BlockCypherBitcoinTXInput(v)).ToList(); }
+        public override List<BitcoinTXInput> Inputs { get => BlockCypherInputs; set => BlockCypherInputs = value; }
  
         [JsonProperty("outputs")]
-        public List<BlockCypherBitcoinTXOutput> BlockCypherOutputs { get; set; }
+        public List<BitcoinTXOutput> BlockCypherOutputs { get; set; }
 
         [JsonIgnore]
-        public override List<BitcoinTXOutput> Outputs { get => BlockCypherOutputs.Select(v => (BitcoinTXOutput)v).ToList(); set => BlockCypherOutputs = value.Select(v => new BlockCypherBitcoinTXOutput(v)).ToList(); }
+        public override List<BitcoinTXOutput> Outputs { get => BlockCypherOutputs; set => BlockCypherOutputs = value; }
 
         [JsonProperty("opt_in_rbf")]
         public override bool OptInRbf { get => base.OptInRbf; set => base.OptInRbf = value; }

@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace BlockchainService.Abstractions.Models
@@ -43,21 +44,25 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The type of encumbrance script used for this output. 
         /// </summary>
+        [JsonProperty("script_type")]
         public virtual string ScriptType { get; set; }
 
         /// <summary>
         ///  The transaction hash that spent this output. Only returned for outputs that have been spent. The spending transaction may be unconfirmed.
         /// </summary>
+        [JsonProperty("spent_by")]
         public virtual string SpentBy { get; set; }
 
         /// <summary>
         ///  A hex-encoded representation of an OP_RETURN data output, without any other script instructions. Only returned for outputs whose script_type is null-data. 
         /// </summary>
+        [JsonProperty("data_hex")]
         public virtual string DataHex { get; set; }
 
         /// <summary>
         ///  An ASCII representation of an OP_RETURN data output, without any other script instructions. Only returned for outputs whose script_type is null-data and if its data falls into the visible ASCII range.
         /// </summary>
+        [JsonProperty("data_string")]
         public virtual string DataString { get; set; }
     }
 }

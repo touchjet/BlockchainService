@@ -17,6 +17,7 @@
  * limitations under the License.
 */
 using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace BlockchainService.Abstractions.Models
@@ -29,21 +30,25 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The previous transaction hash where this input was an output. Not present for coinbase transactions. 
         /// </summary>
+        [JsonProperty("prev_hash")]
         public virtual string PrevHash { get; set; }
 
         /// <summary>
         ///  The index of the output being spent within the previous transaction. Not present for coinbase transactions.  
         /// </summary>
+        [JsonProperty("output_index")]
         public virtual Int64 OutputIndex { get; set; }
 
         /// <summary>
         ///  The value of the output being spent within the previous transaction. Not present for coinbase transactions. 
         /// </summary>
+        [JsonProperty("output_value")]
         public virtual ulong OutputValue { get; set; }
 
         /// <summary>
         ///  The type of script that encumbers the output corresponding to this input.   
         /// </summary>
+        [JsonProperty("script_type")]
         public virtual string ScriptType { get; set; }
 
         /// <summary>
