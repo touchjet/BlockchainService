@@ -64,6 +64,11 @@ namespace BlockchainService.BlockCypher
             return await Get<BlockCypherBitcoinBlockchain>($"/v1/{_coinType}/{_network}");
         }
 
+        public async Task<BitcoinTX> GetTransactionAsync(string hash)
+        {
+            return await Get<BlockCypherBitcoinTX>($"/v1/{_coinType}/{_network}/txs/{hash}");
+        }
+
         public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, Int64 firstBlock, Int64 lastBlock)
         {
             var result = new List<TXRef>();

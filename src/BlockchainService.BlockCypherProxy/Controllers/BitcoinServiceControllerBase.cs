@@ -41,6 +41,12 @@ namespace BlockchainService.BlockCypherProxy.Controllers
             return _service.GetBalanceAsync(address);
         }
 
+        [HttpGet("transaction")]
+        public async Task<BitcoinTX> Transaction(string hash)
+        {
+            return await _service.GetTransactionAsync(hash);
+        }
+
         [HttpGet("transactions")]
         public Task<IEnumerable<TXRef>> Transactions(string address, Int64 firstBlock, Int64 lastBlock)
         {

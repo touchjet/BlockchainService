@@ -77,10 +77,16 @@ namespace BlockchainService.SharedTests
 
             var trans = await service.GetTransactionsAsync(BITCOIN_TESTNET_ADDRESS_1, 0, blockchain.Height);
             var count = trans.Count();
-            Log.Debug($"Number of Transactions: {count}");
             Assert.True(count > 0);
             Assert.Contains(trans, t => t.Value > 0);
-
+            foreach (var tranHash in trans.Select(t => t.Hash))
+            {
+                var trx = await service.GetTransactionAsync(tranHash);
+                Log.Debug(JsonConvert.SerializeObject(trx));
+                Assert.Equal(trx.Hash,tranHash);
+                Assert.True(trx.Inputs.Count > 0);
+                Assert.True(trx.Outputs.Count > 0);
+            }
             var tx = new BitcoinTX()
             {
                 Inputs = new List<BitcoinTXInput> { new BitcoinTXInput { Addresses = new List<string> { BITCOIN_TESTNET_ADDRESS_1 } }, new BitcoinTXInput { Addresses = new List<string> { BITCOIN_TESTNET_ADDRESS_2 } } },

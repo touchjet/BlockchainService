@@ -27,6 +27,7 @@ namespace BlockchainService.Abstractions
     {
         Task<BitcoinBlockchain> GetBlockchainInfoAsync();
         Task<BitcoinAddressRecord> GetBalanceAsync(string address);
+        Task<BitcoinTX> GetTransactionAsync(string hash);
         Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, Int64 firstBlock, Int64 lastBlock);
         Task<BitcoinTXSkeleton> CreateTransactionAsync(BitcoinTX transaction);
         Task<BitcoinTXSkeleton> BroadcastTransactionAsync(BitcoinTXSkeleton transaction);

@@ -58,6 +58,11 @@ namespace BlockchainService.BlockCypherProxy.Client
             return await Get<BitcoinBlockchain>($"/v1/{_coinType}/{_network}");
         }
 
+        public async Task<BitcoinTX> GetTransactionAsync(string hash)
+        {
+            return await Get<BitcoinTX>($"/v1/{_coinType}/{_network}/transaction?txhash={hash}");
+        }
+
         public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, long firstBlock, long lastBlock)
         {
             return await Get<IEnumerable<TXRef>>($"/v1/{_coinType}/{_network}/transactions?address={HttpUtility.UrlEncode(address)}&firstBlock={firstBlock}&lastBlock={lastBlock}");
