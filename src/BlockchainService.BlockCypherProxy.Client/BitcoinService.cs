@@ -60,7 +60,7 @@ namespace BlockchainService.BlockCypherProxy.Client
 
         public async Task<BitcoinTX> GetTransactionAsync(string hash)
         {
-            return await Get<BitcoinTX>($"/v1/{_coinType}/{_network}/transaction?txhash={hash}");
+            return await Get<BitcoinTX>($"/v1/{_coinType}/{_network}/transaction?hash={hash}");
         }
 
         public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, long firstBlock, long lastBlock)
