@@ -18,6 +18,7 @@
 */
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace BlockchainService.Abstractions.Models
 {
@@ -29,6 +30,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// Height of the block that contains this transaction.If this is an unconfirmed transaction, it will equal -1. 
         /// </summary>
+        [JsonProperty("block_height")]
         public virtual Int64 BlockHeight { get; set; }
 
         /// <summary>
@@ -64,6 +66,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  Address of the peer that sent BlockCypher’s servers this transaction.
         /// </summary>
+        [JsonProperty("relayed_by")]
         public virtual string RelayedBy { get; set; }
 
         /// <summary>
@@ -79,6 +82,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  Time when transaction can be valid. Can be interpreted in two ways: if less than 500 million, refers to block height. If more, refers to Unix epoch time.
         /// </summary>
+        [JsonProperty("lock_time")]
         public virtual Int64 LockTime { get; set; }
 
         /// <summary>

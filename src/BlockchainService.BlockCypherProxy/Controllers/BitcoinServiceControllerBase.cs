@@ -64,5 +64,11 @@ namespace BlockchainService.BlockCypherProxy.Controllers
         {
             return _service.BroadcastTransactionAsync(transaction);
         }
+
+        [HttpPost("pushrawtransaction")]
+        public Task<BitcoinTX> PushRawtTransaction([FromBody] BitcoinTXRaw tXRaw)
+        {
+            return _service.PushRawTransactionAsync(tXRaw);
+        }
     }
 }

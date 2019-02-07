@@ -67,5 +67,10 @@ namespace BlockchainService.BlockCypherProxy.Client
         {
             return await Get<IEnumerable<TXRef>>($"/v1/{_coinType}/{_network}/transactions?address={HttpUtility.UrlEncode(address)}&firstBlock={firstBlock}&lastBlock={lastBlock}");
         }
+
+        public async Task<BitcoinTX> PushRawTransactionAsync(BitcoinTXRaw tXRaw)
+        {
+            return await Post<BitcoinTXRaw, BitcoinTX>($"/v1/{_coinType}/{_network}/pushrawtransaction", tXRaw);
+        }
     }
 }

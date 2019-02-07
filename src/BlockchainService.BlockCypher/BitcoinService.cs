@@ -84,5 +84,10 @@ namespace BlockchainService.BlockCypher
             }
             return result;
         }
+
+        public async Task<BitcoinTX> PushRawTransactionAsync(BitcoinTXRaw rawTx)
+        {
+            return await Post<BitcoinTXRaw, BlockCypherBitcoinTX>($"/v1/{_coinType}/{_network}/txs/push?token={_token}", rawTx);
+        }
     }
 }
