@@ -74,7 +74,7 @@ namespace BlockchainService.BlockCypher
             return await Get<BlockCypherEthereumBlockchain>($"/v1/{_coinType}/{_network}");
         }
 
-        public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, Int64 firstBlock, Int64 lastBlock)
+        public async Task<IEnumerable<TXRef>> GetTransactionsAsync(string address, long firstBlock, long lastBlock)
         {
             var result = new List<TXRef>();
             var addressRecord = await Get<BlockCypherEthereumAddressRecord>($"/v1/{_coinType}/{_network}/addrs/{HttpUtility.UrlEncode(address)}?token={_token}&after={firstBlock}&before={lastBlock}");
@@ -84,7 +84,7 @@ namespace BlockchainService.BlockCypher
             }
             if (addressRecord.HasMore)
             {
-                Int64 firstBlockIndex = result.Where(tx => tx.BlockHeight > 0).Select(tx => tx.BlockHeight).Min();
+                long firstBlockIndex = result.Where(tx => tx.BlockHeight > 0).Select(tx => tx.BlockHeight).Min();
                 result.AddRange(await GetTransactionsAsync(address, firstBlock, firstBlockIndex));
             }
             return result;

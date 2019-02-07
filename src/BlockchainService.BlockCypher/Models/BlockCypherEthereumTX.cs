@@ -57,30 +57,30 @@ namespace BlockchainService.BlockCypher.Models
         }
 
         [JsonProperty("block_height")]
-        public override Int64 BlockHeight { get => base.BlockHeight; set => base.BlockHeight = value; }
+        public override long BlockHeight { get => base.BlockHeight; set => base.BlockHeight = value; }
 
         [JsonProperty("gas_used")]
-        public override ulong GasUsed { get => base.GasUsed; set => base.GasUsed = value; }
+        public override long GasUsed { get => base.GasUsed; set => base.GasUsed = value; }
 
         [JsonProperty("gas_price")]
-        public override ulong GasPrice { get => base.GasPrice; set => base.GasPrice = value; }
+        public override long GasPrice { get => base.GasPrice; set => base.GasPrice = value; }
 
         [JsonProperty("relayed_by")]
         public override string RelayedBy { get => base.RelayedBy; set => base.RelayedBy = value; }
 
         [JsonProperty("gas_limit")]
-        public override ulong GasLimit { get => base.GasLimit; set => base.GasLimit = value; }
+        public override long GasLimit { get => base.GasLimit; set => base.GasLimit = value; }
 
         [JsonProperty("contract_creation")]
         public override bool ContractCreation { get => base.ContractCreation; set => base.ContractCreation = value; }
 
         [JsonProperty("receive_count")]
-        public override Int64 ReceiveCount { get => base.ReceiveCount; set => base.ReceiveCount = value; }
+        public override long ReceiveCount { get => base.ReceiveCount; set => base.ReceiveCount = value; }
 
         [JsonProperty("block_hash")]
         public override string BlockHash { get => base.BlockHash; set => base.BlockHash = value; }
 
         [JsonProperty("block_index")]
-        public override Int64 BlockIndex { get => base.BlockIndex; set => base.BlockIndex = value; }
+        public override long BlockIndex { get => base.BlockIndex; set => base.BlockIndex = value; }
     }
 }

@@ -48,7 +48,7 @@ namespace BlockchainService.BlockCypherProxy.Controllers
         }
 
         [HttpGet("transactions")]
-        public Task<IEnumerable<TXRef>> Transactions(string address, Int64 firstBlock, Int64 lastBlock)
+        public Task<IEnumerable<TXRef>> Transactions(string address, long firstBlock, long lastBlock)
         {
             return _service.GetTransactionsAsync(address, firstBlock, lastBlock);
         }

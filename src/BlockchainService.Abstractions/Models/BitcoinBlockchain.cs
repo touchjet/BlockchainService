@@ -32,7 +32,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// The current height of the blockchain; i.e., the number of blocks in the blockchain.   
         /// </summary>
-        public virtual Int64 Height { get; set; }
+        public virtual long Height { get; set; }
 
         /// <summary>
         /// The hash of the latest confirmed block in the blockchain; in Bitcoin, the hashing function is SHA256(SHA256(block)). 
@@ -47,21 +47,21 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// A rolling average of the fee (in satoshis) paid per kilobyte for transactions to be confirmed within 1 to 2 blocks.
         /// </summary>
-        public virtual Int64 HighFeePerKb { get; set; }
+        public virtual long HighFeePerKb { get; set; }
 
         /// <summary>
         /// A rolling average of the fee (in satoshis) paid per kilobyte for transactions to be confirmed within 3 to 6 blocks.
         /// </summary>
-        public virtual Int64 MediumFeePerKb { get; set; }
+        public virtual long MediumFeePerKb { get; set; }
 
         /// <summary>
         /// A rolling average of the fee (in satoshis) paid per kilobyte for transactions to be confirmed in 7 or more blocks.
         /// </summary>
-        public virtual Int64 LowFeePerKb { get; set; }
+        public virtual long LowFeePerKb { get; set; }
 
         /// <summary>
         /// Number of unconfirmed transactions in memory pool (likely to be included in next block).
         /// </summary>
-        public virtual Int64 UnconfirmedCount { get; set; }
+        public virtual long UnconfirmedCount { get; set; }
     }
 }

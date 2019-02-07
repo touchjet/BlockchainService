@@ -61,13 +61,13 @@ namespace BlockchainService.BlockCypher.Models
         }
 
         [JsonProperty("block_height")]
-        public override Int64 BlockHeight { get => base.BlockHeight; set => base.BlockHeight = value; }
+        public override long BlockHeight { get => base.BlockHeight; set => base.BlockHeight = value; }
 
         [JsonProperty("relayed_by")]
         public override string RelayedBy { get => base.RelayedBy; set => base.RelayedBy = value; }
 
         [JsonProperty("lock_time")]
-        public override Int64 LockTime { get => base.LockTime; set => base.LockTime = value; }
+        public override long LockTime { get => base.LockTime; set => base.LockTime = value; }
 
         [JsonProperty("inputs")]
         public List<BitcoinTXInput> BlockCypherInputs { get; set; }
@@ -85,7 +85,7 @@ namespace BlockchainService.BlockCypher.Models
         public override bool OptInRbf { get => base.OptInRbf; set => base.OptInRbf = value; }
 
         [JsonProperty("receive_count")]
-        public override Int64 ReceiveCount { get => base.ReceiveCount; set => base.ReceiveCount = value; }
+        public override long ReceiveCount { get => base.ReceiveCount; set => base.ReceiveCount = value; }
 
         [JsonProperty("change_address")]
         public override string ChangeAddress { get => base.ChangeAddress; set => base.ChangeAddress = value; }
@@ -94,7 +94,7 @@ namespace BlockchainService.BlockCypher.Models
         public override string BlockHash { get => base.BlockHash; set => base.BlockHash = value; }
 
         [JsonProperty("block_index")]
-        public override Int64 BlockIndex { get => base.BlockIndex; set => base.BlockIndex = value; }
+        public override long BlockIndex { get => base.BlockIndex; set => base.BlockIndex = value; }
 
         [JsonProperty("data_protocol")]
         public override string DataProtocol { get => base.DataProtocol; set => base.DataProtocol = value; }

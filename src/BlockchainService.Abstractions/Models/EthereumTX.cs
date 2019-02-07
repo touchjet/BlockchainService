@@ -29,7 +29,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// Height of the block that contains this transaction.If this is an unconfirmed transaction, it will equal -1. 
         /// </summary>
-        public virtual Int64 BlockHeight { get; set; }
+        public virtual long BlockHeight { get; set; }
 
         /// <summary>
         /// The hash of the transaction.While reasonably unique, using hashes as identifiers may be unsafe.  
@@ -44,27 +44,27 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The total number of satoshis exchanged in this transaction. 
         /// </summary>
-        public virtual ulong Total { get; set; }
+        public virtual long Total { get; set; }
 
         /// <summary>
         ///  The total number of fees—in satoshis—collected by miners in this transaction. 
         /// </summary>
-        public virtual ulong Fees { get; set; }
+        public virtual long Fees { get; set; }
 
         /// <summary>
         ///  The size of the transaction in bytes. 
         /// </summary>
-        public virtual Int64 Size { get; set; }
+        public virtual long Size { get; set; }
 
         /// <summary>
         ///  The amount of gas used by this transaction. 
         /// </summary>
-        public virtual ulong GasUsed { get; set; }
+        public virtual long GasUsed { get; set; }
 
         /// <summary>
         ///  The price of gas—in wei—in this transaction. 
         /// </summary>
-        public virtual ulong GasPrice { get; set; }
+        public virtual long GasPrice { get; set; }
 
         /// <summary>
         ///  Address of the peer that sent BlockCypher’s servers this transaction.
@@ -79,12 +79,12 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  Version number, typically 1 for Bitcoin transactions. 
         /// </summary>
-        public virtual Int64 Ver { get; set; }
+        public virtual long Ver { get; set; }
 
         /// <summary>
         ///  Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations. 
         /// </summary>
-        public virtual Int64 Confirmations { get; set; }
+        public virtual long Confirmations { get; set; }
 
         /// <summary>
         ///  TXInput Array
@@ -104,12 +104,12 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  Number of peers that have sent this transaction to BlockCypher; only present for unconfirmed transactions.
         /// </summary>
-        public virtual Int64 ReceiveCount { get; set; }
+        public virtual long ReceiveCount { get; set; }
 
         /// <summary>
         ///  If creating a transaction, can optionally set a higher default gas limit (useful if your recepient is a contract). If not set, default is 21000 gas for external accounts and 80000 for contract accounts.
         /// </summary>
-        public virtual ulong GasLimit { get; set; }
+        public virtual long GasLimit { get; set; }
 
         /// <summary>
         ///  If true, this transaction was used to create a contract and contract account. Note that the contract address (in the outputs field) will be blank until the transaction is confirmed.
@@ -124,7 +124,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  Canonical, zero-indexed location of this transaction in a block; only present for confirmed transactions.
         /// </summary>
-        public virtual Int64 BlockIndex { get; set; }
+        public virtual long BlockIndex { get; set; }
 
         /// <summary>
         ///  Hex-encoded bytes of the transaction, as sent over the network. 

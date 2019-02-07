@@ -25,15 +25,15 @@ namespace BlockchainService.BlockCypher.Models
     public class BlockCypherEthereumBlockchain : EthereumBlockchain
     {
         [JsonProperty("high_gas_price")]
-        public override Int64 HighGasPrice { get => base.HighGasPrice; set => base.HighGasPrice = value; }
+        public override long HighGasPrice { get => base.HighGasPrice; set => base.HighGasPrice = value; }
 
         [JsonProperty("medium_gas_price")]
-        public override Int64 MediumGasPrice { get => base.MediumGasPrice; set => base.MediumGasPrice = value; }
+        public override long MediumGasPrice { get => base.MediumGasPrice; set => base.MediumGasPrice = value; }
 
         [JsonProperty("low_gas_price")]
-        public override Int64 LowGasPrice { get => base.LowGasPrice; set => base.LowGasPrice = value; }
+        public override long LowGasPrice { get => base.LowGasPrice; set => base.LowGasPrice = value; }
 
         [JsonProperty("unconfirmed_count")]
-        public override Int64 UnconfirmedCount { get => base.UnconfirmedCount; set => base.UnconfirmedCount = value; }
+        public override long UnconfirmedCount { get => base.UnconfirmedCount; set => base.UnconfirmedCount = value; }
     }
 }

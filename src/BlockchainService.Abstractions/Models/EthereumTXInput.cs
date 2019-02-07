@@ -34,6 +34,6 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  Legacy 4-byte sequence number, not usually relevant unless dealing with locktime encumbrances.
         /// </summary>
-        public virtual Int64 Sequence { get; set; }
+        public virtual long Sequence { get; set; }
     }
 }

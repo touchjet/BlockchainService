@@ -58,21 +58,6 @@ namespace BlockchainService.BlockCypher.Models
             }
         }
 
-        [JsonProperty("unconfirmed_balance")]
-        public override ulong UnconfirmedBalance { get => base.UnconfirmedBalance; set => base.UnconfirmedBalance = value; }
-
-        [JsonProperty("total_received")]
-        public override ulong TotalReceived { get => base.TotalReceived; set => base.TotalReceived = value; }
-
-        [JsonProperty("total_sent")]
-        public override ulong TotalSent { get => base.TotalSent; set => base.TotalSent = value; }
-
-        [JsonProperty("n_tx")]
-        public override Int64 NumberOfTx { get => base.NumberOfTx; set => base.NumberOfTx = value; }
-
-        [JsonProperty("unconfirmed_n_tx")]
-        public override Int64 NumberOfUnconfirmedTx { get => base.NumberOfUnconfirmedTx; set => base.NumberOfUnconfirmedTx = value; }
-
         [JsonProperty("hasMore")]
         public bool HasMore { get; set; }
     }

@@ -24,15 +24,15 @@ namespace BlockchainService.BlockCypher.Models
     public class BlockCypherBitcoinBlockchain : Abstractions.Models.BitcoinBlockchain
     {
         [JsonProperty("high_fee_per_kb")]
-        public override Int64 HighFeePerKb { get => base.HighFeePerKb; set => base.HighFeePerKb = value; }
+        public override long HighFeePerKb { get => base.HighFeePerKb; set => base.HighFeePerKb = value; }
 
         [JsonProperty("medium_fee_per_kb")]
-        public override Int64 MediumFeePerKb { get => base.MediumFeePerKb; set => base.MediumFeePerKb = value; }
+        public override long MediumFeePerKb { get => base.MediumFeePerKb; set => base.MediumFeePerKb = value; }
 
         [JsonProperty("low_fee_per_kb")]
-        public override Int64 LowFeePerKb { get => base.LowFeePerKb; set => base.LowFeePerKb = value; }
+        public override long LowFeePerKb { get => base.LowFeePerKb; set => base.LowFeePerKb = value; }
 
         [JsonProperty("unconfirmed_count")]
-        public override Int64 UnconfirmedCount { get => base.UnconfirmedCount; set => base.UnconfirmedCount = value; }
+        public override long UnconfirmedCount { get => base.UnconfirmedCount; set => base.UnconfirmedCount = value; }
     }
 }

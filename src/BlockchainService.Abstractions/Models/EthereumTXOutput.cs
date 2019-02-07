@@ -28,7 +28,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// Value in this transaction output, in satoshis.
         /// </summary>
-        public virtual ulong Value { get; set; }
+        public virtual long Value { get; set; }
 
         /// <summary>
         /// Raw hexadecimal encoding of the encumbrance script for this output.  

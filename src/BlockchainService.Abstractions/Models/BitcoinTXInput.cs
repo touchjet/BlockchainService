@@ -37,13 +37,13 @@ namespace BlockchainService.Abstractions.Models
         ///  The index of the output being spent within the previous transaction. Not present for coinbase transactions.  
         /// </summary>
         [JsonProperty("output_index")]
-        public virtual Int64 OutputIndex { get; set; }
+        public virtual long OutputIndex { get; set; }
 
         /// <summary>
         ///  The value of the output being spent within the previous transaction. Not present for coinbase transactions. 
         /// </summary>
         [JsonProperty("output_value")]
-        public virtual ulong OutputValue { get; set; }
+        public virtual long OutputValue { get; set; }
 
         /// <summary>
         ///  The type of script that encumbers the output corresponding to this input.   
@@ -64,11 +64,11 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  Legacy 4-byte sequence number, not usually relevant unless dealing with locktime encumbrances.
         /// </summary>
-        public virtual Int64 Sequence { get; set; }
+        public virtual long Sequence { get; set; }
 
         /// <summary>
         ///  Number of confirmations of the previous transaction for which this input was an output. Currently, only returned in unconfirmed transactions. 
         /// </summary>
-        public virtual Int64 Age { get; set; }
+        public virtual long Age { get; set; }
     }
 }

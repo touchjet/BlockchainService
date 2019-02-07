@@ -24,7 +24,7 @@ namespace BlockchainService.BlockCypher.Models
     public class BlockCypherTXRef
     {
         [JsonProperty("block_height")]
-        public Int64 BlockHeight { get; set; }
+        public long BlockHeight { get; set; }
 
         [JsonProperty("tx_hash")]
         public string Hash { get; set; }
@@ -39,7 +39,7 @@ namespace BlockchainService.BlockCypher.Models
         public virtual long Value { get; set; }
 
         [JsonProperty("ref_balance")]
-        public virtual ulong Balance { get; set; }
+        public virtual long Balance { get; set; }
 
         [JsonProperty("confirmed")]
         public virtual DateTime Confirmed { get; set; }

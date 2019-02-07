@@ -25,7 +25,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         /// Height of the block that contains this transaction.If this is an unconfirmed transaction, it will equal -1. 
         /// </summary>
-        public virtual Int64 BlockHeight { get; set; }
+        public virtual long BlockHeight { get; set; }
 
         /// <summary>
         /// The hash of the transaction.While reasonably unique, using hashes as identifiers may be unsafe.  
@@ -40,7 +40,7 @@ namespace BlockchainService.Abstractions.Models
         /// <summary>
         ///  The past balance of the parent address the moment this transaction was confirmed. Not present for unconfirmed transactions. 
         /// </summary>
-        public virtual ulong Balance { get; set; }
+        public virtual long Balance { get; set; }
 
         /// <summary>
         ///  Time at which transaction was included in a block; only present for confirmed transactions. 
